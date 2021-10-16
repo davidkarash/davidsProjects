@@ -1,3 +1,8 @@
+"""Code to run simulation given input # of trials and 2 poker hands in string format.
+Hand example: AdKd is a player with hole cards ace of diamonds, king of diamonds.
+Run this file as a module using python -m dealer or run hand_simulation() function independently.
+"""
+
 from random import randint
 from pokerreader import compare
 import time
