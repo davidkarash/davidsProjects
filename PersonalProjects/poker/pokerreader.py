@@ -102,6 +102,9 @@ def classify(hand: Hand) -> str:
         elif ranks[x] == 2:
             pairs.append(x)
     
+    trips.sort()
+    pairs.sort()
+    
     # Hand is full house
     if len(trips) > 1:
         return "fh" + inttorank[trips[1]] + inttorank[trips[0]]
@@ -145,13 +148,15 @@ def classify(hand: Hand) -> str:
         return trip
     
     # Hand is two pair
-    elif len(pairs) == 2:
+    elif len(pairs) >= 2:
         twop: str = "2p"
         i = 6
-        for x in pairs:
-            twop += inttorank[x]
-            if x == cards[i].rank:
+        j = len(pairs)-1
+        for i in range(2):
+            twop += inttorank[pairs[j]]
+            if pairs[j] == cards[i].rank:
                 i -= 2
+            j -= 1
         return twop + inttorank[cards[i].rank]
     
     # Hand is one pair
