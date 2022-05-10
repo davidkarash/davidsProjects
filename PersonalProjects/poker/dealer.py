@@ -10,6 +10,7 @@ Run this file as a module using python -m dealer or run hand_simulation() functi
 from random import randint
 from pokerreader import compare, classify, handMaker
 import time
+import sys
 
 hands_out = tuple[str, str]
 suits: dict[int, str] = {0:'c',1:'h',2:'s',3:'d'}
@@ -126,4 +127,17 @@ def test_one_hand() -> None:
 
 
 if __name__ == "__main__":
-    hand_simulation()
+    if len(sys.argv) == 1:
+        print("Running this file requires an argument specifying the type of deal. Use python -m dealer help for options.")
+    elif sys.argv[1] == 'help':
+        print("""Usage: python -m dealer <type>
+        Valid types:
+            sim: runs simulation of equity between two hands on a set number of dealt hands, prints results
+            test: deal by deal simulation which prints classification of each hand after deal and the winner
+            help: prints this help message""")
+    elif sys.argv[1] == 'sim':
+        hand_simulation()
+    elif sys.argv[1] == 'test':
+        test_one_hand()
+    else:
+        print("Invalid argument for type.  Use python -m dealer help for usage.")
