@@ -152,7 +152,7 @@ def classify(hand: Hand) -> str:
         twop: str = "2p"
         i = 6
         j = len(pairs)-1
-        for i in range(2):
+        for _ in range(2):
             twop += inttorank[pairs[j]]
             if pairs[j] == cards[i].rank:
                 i -= 2
