@@ -8,6 +8,7 @@ suits: list[str] = ["h", "d", "s", "c"]
 handrankings: dict[str, int] = {"sf" : 0, "4k" : 1, "fh": 2, "fl": 3, "st": 4, "3k": 5, "2p": 6, "1p": 7, "hc": 8}
 
 class Card:
+    """Object which encapsulates rank and suit information about a specific card."""
     rank: int = 0
     suit: str = ""
 
@@ -17,9 +18,11 @@ class Card:
 
 
 class Hand:
+    """Object which encapsulates a list of cards and defines methods for a hand of cards."""
     cards: list[Card]
 
     def __init__(self, cards: list[Card]):
+        """Constructor takes in a list of cards and then sorts them, for use in future methods."""
         for i in range(len(cards)-1):
             for j in range(0, len(cards)-i-1):
                 if cards[j].rank > cards[j+1].rank:
@@ -37,7 +40,7 @@ class Hand:
 
 
 def classify(hand: Hand) -> str:
-    # TODO: check sf
+    """Classifies a hand, working through strongest hand to weakest hand, returning once it finds the strongest classification."""
     cards = hand.cards
     in_row: list[list[Card]] = []
     csuit: str = ""
@@ -181,6 +184,7 @@ def classify(hand: Hand) -> str:
 
 
 def handMaker(cards: str) -> Hand:
+    """Converts a hand from its str format to a Hand object."""
     list_c: list[Card] = []
     for i in range(0, 14, 2):
         temp: str = ""
@@ -191,6 +195,7 @@ def handMaker(cards: str) -> Hand:
 
 
 def checksf(hand: Hand) -> str:
+    """This method is for future use in a more efficient compare method."""
     suits: dict[str, list[Card]] = {"c": [], "h": [], "d": [], "s": []}
 
     # Check for flush
@@ -243,6 +248,7 @@ def checksf(hand: Hand) -> str:
 
 
 def compare(hand1: str, hand2: str) -> int:
+    """Compares two hands (given in string format of 7 cards) and returns 0 if hand 1 wins, 1 if hand 2 wins, and 2 if tied."""
     # return values 0, 1, 2, indicate hand 1 wins, hand 2 wins, and tie, respectively
     # TODO: Implement efficient method to replace time wasted on calculating second hand classification
     # if classified[0:1] == "sf":

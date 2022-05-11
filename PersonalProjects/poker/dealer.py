@@ -20,12 +20,16 @@ rank_to_random: dict[str, int] = {'2':0,'3':1,'4':2,'5':3,'6':4,'7':5,'8':6,'9':
 
 
 def convert_val_to_card(val: int) -> str:
+    """Bijection between cards and ints 0-52, converts an integer to its card str representation."""
     rank: str = random_to_rank[val % 13]
     suit: str = suits[val // 13]
     return rank+suit
 
 
 def hand_simulation() -> None:
+    """Runs n simulations of hands between two pairs of hole cards.  Uses command line input.
+    Future improvements will move away from command line input and towards a UI for ease of use.
+    """
     sims: int = int(input("How many simulations would you like to run? "))
     held_cards_1: str = input("Input player 1 hand: ")
     held_cards_2: str = input("input player 2 hand: ")
@@ -78,6 +82,7 @@ def hand_simulation() -> None:
     # print(str(time_comparing/(end-start)) + "%")
 
 def test_one_hand() -> None:
+    """Input two hands and run one deal at a time, printing each hand, classification, and result.  Used for testing."""
     held_cards_1: str = input("Input player 1 hand: ")
     held_cards_2: str = input("input player 2 hand: ")
 
