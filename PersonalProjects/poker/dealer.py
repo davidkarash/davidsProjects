@@ -7,6 +7,10 @@ Run this file as a module using python -m dealer or run hand_simulation() functi
 # TODO: After fixing above, verify percentages are perfectly accurate (AdKs vs ThTs off by 0.1%)
 # I believe the above error is the source of issues because theoretical is .39% tie, sim hits .32%.
 
+# TODO: Add ability to play from different streets 
+# TODO: Add GUI for easy use of the program without CLIs
+# TODO: Decide how to implement the above
+
 from random import randint
 from pokerreader import compare, classify, handMaker
 import time

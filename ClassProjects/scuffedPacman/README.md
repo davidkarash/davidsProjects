@@ -1,0 +1,3 @@
+** For my final project in COMP541 (Digital Logic and Computer Design) I had the task of building a game written in only assembly.  Throughout the course of this class, we built a full single-cycle MIPS CPU in Verilog that was run on a Artix-7 FPGA. Writing a functioning game (especially one as complex as Pacman) in only assembly was a daunting task, but I am proud of the final product I created for this class.  Below is a link to the project files as well as a video demo uploaded to Google Drive.  Enjoy!
+
+[Google Drive](https://drive.google.com/drive/folders/1s4sLo3zrLpyA5DkOKjwguaPJipWRXmyH?usp=sharing)
